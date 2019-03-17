@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Challenge 4</title>
+    <style>
+    body{
+        margin: 2%;
+        border: 1px solid black;
+        background-color: #b3b3b3;
+    }
+    #image{
+        line-height:325px;
+        width: 388px;
+        height: 325px;
+        border:5px solid black;
+        margin:0 auto;
+        background-repeat: no-repeat;
+        color:#FFFFFF;
+        text-align: center;
+        background-color: #8e68ff;
+        background-size: 100%;
+        margin-bottom:25px;
+        font-size:150%;
+    }
+    .preview{
+        width:10%;
+        margin-left:17%;
+        border: 10px solid black;
+    }
+    img{
+        width:95%;
+    }
+    h1{
+        text-align: center;
+    }
+    </style>
+
+    <script>
+    function update(prevPic){
+      let img = "'" + prevPic.src + "'";
+      let txt = prevPic.alt;
+      let space = document.querySelector("#image");
+
+      console.log(img);
+
+      space.style.backgroundImage = "url("+img+")";
+      space.innerHTML = txt;
+    }
+
+    function undo(){
+      console.log("UNDO")
+
+      let origText = "Hover or tab over/into an image below";
+      let space = document.querySelector("#image");
+
+      space.style.backgroundImage = "None";
+      space.innerHTML = origText;
+
+      console.log(origText)
+      // let background = ;
+    }
+
+    </script>
+</head>
+
+<body>
+    <h1>Challenge 4</h1>
+        <div id = "image">
+            Hover or tab over/into an image below.
+        </div>
+
+        <!-- Your code goes in the img tag below.  Make sure to react to "hovering" and "tabbing": -->
+        <img class = "preview"
+            alt = "Styling with a Bandana"
+            src = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/389177/bacon.jpg"
+            onmouseover = "update(this)" onfocus = "update(this)" onmouseleave = "undo()" onblur = "undo()">
+
+        <!-- Your code goes in the img tag below.  Make sure to react to "hovering" and "tabbing": -->
+        <img class = "preview"
+            alt = "With My Boy"
+            src = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/389177/bacon2.JPG"  onmouseover = "update(this)" onfocus = "update(this)" onmouseleave = "undo()" onblur = "undo()">
+
+        <!-- Your code goes in the img tag below.  Make sure to react to "hovering" and "tabbing": -->
+        <img class = "preview" tabindex = "1"
+            src = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/389177/bacon3.jpg"
+            alt = "Young Puppy" onmouseover = "update(this)" onfocus = "update(this)" onmouseleave = "undo()" onblur = "undo()">
+</body>
+</html>
